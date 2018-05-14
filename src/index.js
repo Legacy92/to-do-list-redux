@@ -5,8 +5,9 @@ import { createStore, applyMiddleware } from 'redux';
 import App from './components/app';
 import { BrowserRouter as Router } from 'react-router-dom';
 import rootReducer from './reducers';
+import promise from 'redux-promise';
 
-const store = createStore(rootReducer, {}, applyMiddleware());
+const store = createStore(rootReducer, {}, applyMiddleware(promise));
 
 ReactDOM.render(
     <Provider store={store}>
