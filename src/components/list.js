@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getListData } from '../actions'
+import { getListData } from '../actions';
 
 class List extends Component {
     componentDidMount() {
@@ -13,7 +13,11 @@ class List extends Component {
 
         const listItems = listData.map((item, index) => {
             return (
-                <li className="collection-item" key={index}>{item.title}</li>
+                (
+                    <li className="collection-item" key={index}>
+                       <Link to= {`/item/${item._id}`}>{item.title}</Link>
+                    </li>
+                )
             )
         });
 
@@ -21,7 +25,7 @@ class List extends Component {
             <div>
                 <h1 className="center">To Do List </h1>
                 <div className="row right-align">
-            <Link className='btn blue-grey' to='/add-item'>Add Item</Link>
+                    <Link className='btn blue-grey' to='/add-item'>Add Item</Link>
                 </div>
                 <ul className='collection'>
                     {listItems}
