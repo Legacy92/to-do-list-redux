@@ -11,7 +11,9 @@ export default function (state = DEFAULT_STATE, action) {
             console.log('GET LIST DATA ACTION', action);
             return { ...state, all: action.payload.data.todos };
         case types.GET_SINGLE_ITEM:
-            return { ...state, single: action.payload.data.todo };
+        case types.TOGGLE_COMPLETE:
+            console.log('toggle complete action', action);
+            return {...state, single: action.payload.data.todo};
         default:
             return state;
     }
